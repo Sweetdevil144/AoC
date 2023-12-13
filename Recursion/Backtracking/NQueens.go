@@ -3,19 +3,17 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(NQueens(4))
+	fmt.Println(solveNQueens(4))
 }
 
-func NQueens(n int) [][]string {
-	s := make([][]string, 0)
-	ans := make([][]string, 0)
+func solveNQueens(n int) [][]string {
+	s := make([][]string, n)
 	for i := 0; i < n; i++ {
 		s[i] = make([]string, n)
 	}
-	for i := 0; i < n; i++ {
-		x, _ := solveQueens(n, s, 0)
-		ans = append(s, transformX(x))
-	}
+	ans := make([][]string, 0)
+	x, _ := solveQueens(n, s, 0)
+	ans = append(ans, transformX(x))
 	return ans
 }
 
