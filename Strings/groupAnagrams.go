@@ -3,29 +3,30 @@ package main
 import (
 	"fmt"
 	"sort"
+	"strings"
 )
 
 func main() {
 	fmt.Println(groupAnagrams([]string{"eat", "tea", "tan", "ate", "nat", "bat"}))
-	fmt.Println(groupAnagrams([]string{"", "", ""}))
+	fmt.Println(anagramsOptimised([]string{"eat", "tea", "tan", "ate", "nat", "bat"}))
 }
 
-func groupAnagrams(strs []string) [][]string {
-	arr := make([][]string, len(strs))
+// Brute Force -> O(n^2 * log(n))
+func groupAnagrams(strings []string) [][]string {
+	arr := make([][]string, len(strings))
 	x := 0
-	for i := 0; i < len(strs); {
-		str := strs[i]
-		for j := i + 1; j < len(strs); {
-			if sortStr(str) == sortStr(strs[j]) {
-				arr[x] = append(arr[x], strs[j])
-				strs = append(strs[:j], strs[j+1:]...)
+	for i := 0; i < len(strings); {
+		str := strings[i]
+		for j := i + 1; j < len(strings); {
+			if sortStr(str) == sortStr(strings[j]) {
+				arr[x] = append(arr[x], strings[j])
+				strings = append(strings[:j], strings[j+1:]...)
 			} else {
 				j++
 			}
 		}
 		arr[x] = append(arr[x], str)
-		strs = append(strs[:i], strs[i+1:]...)
-		//fmt.Println("Current array = ", strs, " \t x =", x, " and \t arr =", arr)
+		strings = append(strings[:i], strings[i+1:]...)
 		x++
 	}
 	arr = filterEmpty(arr)
@@ -51,4 +52,24 @@ func sortStr(s string) string {
 		return r[i] < r[j]
 	})
 	return string(r)
+}
+
+// Optimized -> O(n^2)
+func anagramsOptimised(strs []string) [][]string {
+	stringMap := make(map[string][]string)
+
+	for _, s := range strs {
+		c := strings.Split(s, "")
+		sort.Strings(c)
+		hashString := strings.Join(c, "")
+
+		stringMap[hashString] = append(stringMap[hashString], s)
+	}
+
+	var result [][]string
+	for _, v := range stringMap {
+		result = append(result, v)
+	}
+
+	return result
 }
