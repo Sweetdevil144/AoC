@@ -12,81 +12,57 @@ func solveNQueens(n int) [][]string {
 		s[i] = make([]string, n)
 	}
 	ans := make([][]string, 0)
-	x, _ := solveQueens(n, s, 0)
-	ans = append(ans, transformX(x))
+	solveQueens(n, s, 0, &ans)
 	return ans
 }
 
+func solveQueens(n int, str [][]string, i int, ans *[][]string) {
+	if i == n {
+		newSolution := transformX(str)
+		*ans = append(*ans, newSolution)
+		return
+	}
+
+	for j := 0; j < n; j++ {
+		if isSafe(str, i, j) {
+			str[i][j] = "Q"
+			solveQueens(n, str, i+1, ans)
+			str[i][j] = ""
+		}
+	}
+}
+
+func isSafe(str [][]string, row, col int) bool {
+	for i := 0; i < row; i++ {
+		if str[i][col] == "Q" {
+			return false
+		}
+	}
+	for i, j := row, col; i >= 0 && j >= 0; i, j = i-1, j-1 {
+		if str[i][j] == "Q" {
+			return false
+		}
+	}
+	for i, j := row, col; i >= 0 && j < len(str); i, j = i-1, j+1 {
+		if str[i][j] == "Q" {
+			return false
+		}
+	}
+	return true
+}
+
 func transformX(x [][]string) []string {
-	res := make([]string, 0)
+	res := make([]string, len(x))
 	for i := 0; i < len(x); i++ {
 		str := ""
 		for j := 0; j < len(x[i]); j++ {
-			str += x[i][j]
-		}
-		res = append(res, str)
-	}
-	return res
-}
-
-func solveQueens(n int, str [][]string, i int) ([][]string, bool) {
-	comp := false
-	if i == n {
-		return str, true
-	}
-	for j := 0; j < len(str[i]); j++ {
-		if str[i][j] != "." {
-			str[i][j] = "Q"
-			fmt.Println("Str of", i, j, "is", str)
-			arr := changeRCD(str, i, j)
-			arr, comp = solveQueens(n, arr, i+1)
-			if comp {
-				str = arr
+			if x[i][j] == "Q" {
+				str += "Q"
 			} else {
-				str[i][j] = ""
+				str += "."
 			}
 		}
+		res[i] = str
 	}
-	return str, comp
-}
-
-func changeRCD(str [][]string, i int, j int) [][]string {
-	// Create a deep copy of str
-	copyStr := make([][]string, len(str))
-	for i := range str {
-		copyStr[i] = make([]string, len(str[i]))
-		copy(copyStr[i], str[i])
-	}
-
-	n := len(copyStr)
-	// Change all elements in the same row and column
-	for k := 0; k < n; k++ {
-		if copyStr[i][k] != "Q" {
-			copyStr[i][k] = "."
-		}
-		if copyStr[k][j] != "Q" {
-			copyStr[k][j] = "."
-		}
-	}
-
-	// Change all elements in the same diagonals
-	for k := 0; k < n; k++ {
-		// Top-left to bottom-right diagonal
-		if i+k < n && j+k < n && copyStr[i+k][j+k] != "Q" {
-			copyStr[i+k][j+k] = "."
-		}
-		// Bottom-left to top-right diagonal
-		if i-k >= 0 && j-k >= 0 && copyStr[i-k][j-k] != "Q" {
-			copyStr[i-k][j-k] = "."
-		}
-		// Top-right to bottom-left diagonal
-		if i+k < n && j-k >= 0 && copyStr[i+k][j-k] != "Q" {
-			copyStr[i+k][j-k] = "."
-		}
-		// Bottom-right to top-left diagonal
-		if i-k >= 0 && j+k < n && copyStr[i-k][j+k] != "Q" {
-			copyStr[i-k][j+k] = "."
-		}
-	}
-	return copyStr
+	return res
 }
