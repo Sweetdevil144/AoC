@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-func main() {
+func boyOrGirl() {
 	var str string
 	fmt.Scan(&str)
 

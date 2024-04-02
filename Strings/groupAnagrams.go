@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func main() {
+func groupAnagramsHelper() {
 	fmt.Println(groupAnagrams([]string{"eat", "tea", "tan", "ate", "nat", "bat"}))
 	fmt.Println(anagramsOptimised([]string{"eat", "tea", "tan", "ate", "nat", "bat"}))
 }

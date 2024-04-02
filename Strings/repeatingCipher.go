@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func decipherHelper() {
 	var (
 		n int
 		s string

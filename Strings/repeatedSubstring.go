@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func main() {
+func helperRepeatedSubstringPattern() {
 	//fmt.Println(repeatedSubstringPattern("abac"))
 	//fmt.Println(repeatedSubstringPattern("aba"))
 	//fmt.Println(repeatedSubstringPattern("ababab"))

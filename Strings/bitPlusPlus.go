@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func bitPlusPlus() {
 	var (
 		n int
 		s string

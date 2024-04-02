@@ -1,13 +1,9 @@
 package main
 
 import (
-	"fmt"
 	"strconv"
 )
 
-func main() {
-	fmt.Println(largestOddNumber("35267"))
-}
 
 func largestOddNumber(num string) string {
 	s := ""

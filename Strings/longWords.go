@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-func main() {
+func helperLongWords() {
 	var (
 		n   int
 		str string
