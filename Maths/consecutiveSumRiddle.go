@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func CalculateResult() {
 	var testCases, number int
 	fmt.Scan(&testCases)
 	for testCases > 0 {

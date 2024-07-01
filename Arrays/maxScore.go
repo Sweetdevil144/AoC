@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func main() {
+func MaxScore() {
 	fmt.Println(maxScore("011101"))
 	fmt.Println(maxScore("00111"))
 }

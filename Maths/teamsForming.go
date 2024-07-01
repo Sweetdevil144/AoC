@@ -5,7 +5,7 @@ import (
 	"sort"
 )
 
-func main() {
+func TeamsForming() {
 	var n int
 	fmt.Scan(&n)
 	var arr = make([]int, n)

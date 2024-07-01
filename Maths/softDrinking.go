@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func main() {
+func softDrinking() {
 	var (
 		n, k, l, c, d, p, nl, np int
 	)

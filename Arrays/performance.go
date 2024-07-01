@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func FindAmazing() {
 	var n int
 	fmt.Scan(&n)
 	x := make([]int, n)

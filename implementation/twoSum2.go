@@ -1,11 +1,5 @@
 package main
 
-import "fmt"
-
-func main() {
-	fmt.Println(twoSum([]int{1, 3, 4, 5, 67, 10, 9}, 9))
-}
-
 func twoSum(numbers []int, target int) []int {
 	var (
 		i   = 0

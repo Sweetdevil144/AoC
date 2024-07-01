@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func main() {
+func MinTimeToVisitAllPoints() {
 	fmt.Println(minTimeToVisitAllPoints([][]int{{1, 1}, {3, 4}, {-1, 0}}))
 }
 

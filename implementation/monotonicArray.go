@@ -1,10 +1,6 @@
 package main
 
-import "fmt"
 
-func main() {
-	fmt.Println(isMonotonic([]int{1, 2, 4, 6, 8}))
-}
 func isMonotonic(arr []int) bool {
 	if len(arr) == 1 {
 		return true

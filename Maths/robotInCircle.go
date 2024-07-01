@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func robotInCircle() {
 	fmt.Println(judgeCircle("UPUP"))
 	fmt.Println(judgeCircle("UDD"))
 }

@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func main() {
+func hourseRobber1() {
 	fmt.Println(rob([]int{1, 2, 3, 1}))                         // 4
 	fmt.Println(rob([]int{2, 1, 1, 2}))                         // 4
 	fmt.Println(rob([]int{1, 2, 2, 1}))                         // 3

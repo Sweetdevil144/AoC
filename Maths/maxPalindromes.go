@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func MaxPalindromesAfterOperations() {
 	fmt.Println(maxPalindromesAfterOperations([]string{"abc", "ab", "ba"}))
 }
 

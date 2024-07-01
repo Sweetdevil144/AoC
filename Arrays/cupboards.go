@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func main() {
+func copboards() {
 	var n int
 	fmt.Scan(&n)
 

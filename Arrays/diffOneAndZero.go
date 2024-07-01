@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func diffOneMinusZero() {
 	fmt.Println(onesMinusZeros([][]int{{1, 0, 0}, {0, 0, 0}, {0, 0, 1}}))
 	fmt.Println(onesMinusZeros([][]int{{0, 1, 1}, {1, 0, 1}, {0, 0, 1}}))
 	fmt.Println(onesMinusZeros([][]int{{1, 1, 1}, {1, 1, 1}}))

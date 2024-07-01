@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func main() {
+func ImageSmoother() {
 	fmt.Println(imageSmoother([][]int{{1, 1, 1}, {1, 0, 1}, {1, 1, 1}}))
 	fmt.Println(imageSmoother([][]int{{100, 200, 100}, {200, 50, 200}, {100, 200, 100}}))
 }

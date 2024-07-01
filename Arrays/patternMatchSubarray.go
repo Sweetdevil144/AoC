@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func CountMatchingSubarrays() {
 	fmt.Println(countMatchingSubarrays([]int{1, 2, 3, 4, 5, 6}, []int{1, 1}))
 	fmt.Println(countMatchingSubarrays([]int{1, 4, 4, 1, 3, 5, 5, 3}, []int{-1, 0, 1}))
 }

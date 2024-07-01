@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func horseshoe() {
 	nums := make([]int, 4)
 	for i := 0; i < 4; i++ {
 		fmt.Scan(&nums[i])

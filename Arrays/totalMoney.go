@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func TotalMoney() {
 	fmt.Println(totalMoney(4))
 	fmt.Println(totalMoney(10))
 	fmt.Println(totalMoney(20))

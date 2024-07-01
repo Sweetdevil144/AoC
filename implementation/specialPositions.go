@@ -1,9 +1,5 @@
 package main
 
-func main() {
-	mat := [][]int{{1, 0, 0}, {0, 1, 0}, {0, 0, 1}}
-	println(numSpecial(mat))
-}
 
 func numSpecial(mat [][]int) int {
 	c := 0

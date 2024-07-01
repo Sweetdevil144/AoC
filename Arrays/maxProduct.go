@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func MaxProduct() {
 	fmt.Println(maxProduct([]int{1, 5, 4, 3, 7}))
 }
 

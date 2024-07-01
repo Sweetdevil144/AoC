@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func FindSpecialInteger() {
 	fmt.Println(findSpecialInteger([]int{1, 2, 2, 6, 6, 6, 6, 7, 10}))
 }
 
