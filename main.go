@@ -1,9 +1,9 @@
 package main
 
 import (
-	"DSA-Go/io"
+	"DSA-Go/Maths"
 )
 
 func main() {
-	io.EvenOdds()
+	Maths.EvenOdds()
 }
