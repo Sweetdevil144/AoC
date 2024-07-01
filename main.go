@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"DSA-Go/io"
+)
 
 func main() {
-	fmt.Println("Hello World")
+	io.EvenOdds()
 }
