@@ -1,4 +1,4 @@
-package main
+package implementation
 
 func twoSum(numbers []int, target int) []int {
 	var (

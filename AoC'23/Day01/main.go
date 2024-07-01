@@ -1,4 +1,4 @@
-package main
+package Day01
 
 import (
 	"bufio"

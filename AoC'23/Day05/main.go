@@ -1,4 +1,4 @@
-package main
+package Day05
 
 import (
 	"encoding/json"

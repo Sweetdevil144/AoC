@@ -1,4 +1,4 @@
-package main
+package implementation
 
 
 func isMonotonic(arr []int) bool {
