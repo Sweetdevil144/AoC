@@ -1,11 +1,7 @@
-package main
+package simulation
 
 import "fmt"
 
-func main() {
-	paths := [][]string{{"London", "New York"}, {"New York", "Lima"}, {"Lima", "Sao Paulo"}}
-	fmt.Println("Destination City : ", destCity(paths))
-}
 
 func destCity(paths [][]string) string {
 	startC := paths[0][0]

@@ -1,4 +1,5 @@
-package main
+package simulation
+
 import "fmt"
 func wierdAlgo() {
 	var n int
