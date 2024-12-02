@@ -7,7 +7,7 @@ import (
 	"strconv"
 )
 
-func main() {
+func SecondPuzzle() {
 	data, err := readAndPadFile("data.txt")
 	if err != nil {
 		fmt.Println("Error:", err)

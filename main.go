@@ -1,10 +1,10 @@
 package main
 
 import (
+	puzzle "DSA-Go/AoC_24/Day01"
 	"fmt"
-	"DSA-Go/Leetcode-150"
 )
 
 func main() {
-	fmt.Println(leetcode150.FindTheWinner(6,5))
+	fmt.Println(puzzle.SecondPuzzle())
 }

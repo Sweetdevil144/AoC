@@ -19,7 +19,7 @@ type DataTwo struct {
 	HumidityToLocationMap    [][]int `json:"humidity-to-location map"`
 }
 
-func main() {
+func SecondPuzzle() {
 	content, err := os.ReadFile("data.json")
 	if err != nil {
 		log.Fatal(err)
