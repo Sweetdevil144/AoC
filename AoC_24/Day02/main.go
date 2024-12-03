@@ -2,32 +2,81 @@ package day02
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"strconv"
 	"strings"
+	"math"
 )
 
-func parseInput(filePath string) ([]float64, []float64, error) {
-	raw, err := os.ReadFile(filePath)
+func FirstPuzzle() {
+	res := 0
+	raw, err := os.ReadFile("AoC_24/Day02/input.txt")
 	if err != nil {
-		return nil, nil, fmt.Errorf("error reading file: %v", err)
+		log.Fatal("Error Reading File")
 	}
 
 	data := string(raw)
 	arrayData := strings.Split(data, "\n")
-	left := make([]float64, len(arrayData))
-	right := make([]float64, len(arrayData))
+	for _, line := range arrayData {
+		if line == "" {
+			continue
+		}
+		dat := strings.Split(line, " ")
+		var array = []float64{}
 
-	for i := 0; i < len(arrayData); i++ {
-		split := strings.Split(arrayData[i], "   ")
-		leftVal, _ := strconv.ParseFloat(split[0], 64)
-		rightVal, _ := strconv.ParseFloat(split[1], 64)
-		left[i] = leftVal
-		right[i] = rightVal
+		for _, i := range dat {
+			j, err := strconv.Atoi(i)
+			if err != nil {
+				panic(err)
+			}
+			array = append(array, float64(j))
+		}
+		fmt.Println(array)
+		if isSafe, _ := isSafeArray(array); isSafe {
+			res++
+		} else {
+			// Check by removing each level
+			if checkSafetyByRemovingOne(array) {
+				res++
+			}
+		}
 	}
 
-	return left, right, nil
+	fmt.Println("Total Safe Reports:", res)
 }
-func FirstPuzzle() {
 
+func isSafeArray(array []float64) (bool, int) {
+	var dec bool = false
+	if len(array) > 1 && array[0] > array[1] {
+		dec = true
+	}
+	for i := 0; i < len(array)-1; i++ {
+		if dec {
+			if array[i] < array[i+1] {
+				return false, i
+			}
+		} else {
+			if array[i] > array[i+1] {
+				return false, i
+			}
+		}
+		diff := math.Abs(array[i] - array[i+1])
+		if !(diff >= 1 && diff <= 3) {
+			return false, i
+		}
+	}
+	return true, -1
+}
+
+func checkSafetyByRemovingOne(array []float64) bool {
+	for i := range array {
+		newArray := make([]float64, 0, len(array)-1)
+		newArray = append(newArray, array[:i]...)
+		newArray = append(newArray, array[i+1:]...)
+		if isSafe, _ := isSafeArray(newArray); isSafe {
+			return true
+		}
+	}
+	return false
 }

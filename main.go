@@ -1,10 +1,9 @@
 package main
 
 import (
-	puzzle "DSA-Go/AoC_24/Day01"
-	"fmt"
+	puzzle "AoC-GO/AoC_24/Day02"
 )
 
 func main() {
-	fmt.Println(puzzle.SecondPuzzle())
+	puzzle.FirstPuzzle()
 }
