@@ -2,21 +2,8 @@ package day03
 
 import (
 	"fmt"
-	"log"
-	"os"
-	"strings"
+	utils "AoC-GO/utils"
 )
-
-func parseFile(input string) []string {
-	raw, err := os.ReadFile(input)
-	if err != nil {
-		log.Fatal("Error Reading File")
-	}
-
-	data := string(raw)
-	arrayData := strings.Split(data, "\n")
-	return arrayData
-}
 
 func readInteger(line string, pattern byte) (int, int, bool) {
 	integer := 0
@@ -47,7 +34,7 @@ func SecondPuzzle() {
 	disableMul := "don't()"
 	enabled := true
 	res := 0
-	arrayData := parseFile("AoC_24/Day03/input.txt")
+	arrayData := utils.ParseFile("AoC_24/Day03/input.txt")
 	for _, line := range arrayData {
 		for i := 0; i < len(line); {
 			if i+4 > len(line) {
@@ -91,7 +78,7 @@ func SecondPuzzle() {
 func FirstPuzzle() {
 	match := "mul("
 	res := 0
-	arrayData := parseFile("AoC_24/Day03/example.txt")
+	arrayData := utils.ParseFile("AoC_24/Day03/example.txt")
 	for _, line := range arrayData {
 		for i := 0; i < len(line); {
 			if i+4 > len(line) {
