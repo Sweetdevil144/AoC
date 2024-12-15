@@ -1,9 +1,8 @@
 package main
 import (
-	puzzle "AoC-GO/AoC_24/Day05"
+	puzzle "AoC-GO/AoC_24/Day06"
 )
 
 func main() {
-	puzzle.Day05()
-	// puzzle.SecondPuzzle()
+	puzzle.FirstPuzzle()	
 }
